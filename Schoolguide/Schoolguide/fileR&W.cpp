@@ -80,6 +80,14 @@ int AddingPointinfo(Pointinfo* head, int nums, int nu) {
 	return nums;
 }
 
+int PopingPointinfo(Pointinfo* head, string name, int nums) {
+	Pointinfo*p = head;
+	while (abs(p->next->name.compare(name))) {
+		p = p->next;
+	}
+	nums = popPointinfo(p, nums);
+}
+
 /* read the data from the file correct
 	input: head of the linked list
 	output: numbers of vertices
