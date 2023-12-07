@@ -29,7 +29,7 @@ void buildingAdjoint_matrices(int numbers, PathNode* head);
 
 int addPathNode(PathNode* head, int vA, int vB, int pathlen, int numbers);
 int popPathNode(PathNode* head, int numbers);
-void FnpopPAthNode(PathNode* Pathhead, int numbers, int vA, int vB, int pathlength);
+int FnpopPAthNode(PathNode* Pathhead, int numbers, int vA, int vB, int pathlength);
 void print_allPathNodes(PathNode* head);
 
 int addPointinfo(Pointinfo* head, string name, string info, int num, int nums);
