@@ -39,6 +39,7 @@ void print_allPointinfo(Pointinfo* head);
 Pathinfo** Floyd_A(int number);
 int** Floyd_B(int numbers);
 void printPath(Pathinfo** paths, int start, int end);
+void printinfo_ofPath(Pathinfo** paths, Pointinfo* infohead, int nums, int start, int end);
 // int* Dijkstra(int numbers, int start, int end);
 
 void searchinfo(Pointinfo* head, int nums);
