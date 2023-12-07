@@ -10,7 +10,6 @@ using namespace std;
 	output: numbers of vertices
 */
 int Rawdata_readinfromTerminal(PathNode* head) {
-	head->next = nullptr;
 	int vA, vB, pathlen;
 	int numbers;
 	cout << "enter the pointer num:";
