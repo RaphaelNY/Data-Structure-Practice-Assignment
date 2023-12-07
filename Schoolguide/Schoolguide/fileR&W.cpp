@@ -11,7 +11,7 @@ using namespace std;
 */
 int Rawdata_readinfromTerminal(PathNode* head, int numbers) {
 	int vA, vB, pathlen, num;
-	cout << "enter the pointer num:";
+	cout << "enter the path num:";
 	cin >> num;
 	numbers += num;
 	for (int i = 0; i < num;i++) {
@@ -30,8 +30,26 @@ int AddingPointinfo(Pointinfo* head, int nums) {
 	string name, info;
 	int num,nu;
 	Pointinfo* p = new Pointinfo("", "", -1);	
-	cout << "please enter the nums:";
+	cout << "please enter the pointer nums:";
 	cin >> nu;
+	nums += nu;
+	for (int i = 0; i < nu; i++) {
+		cout << "please enter the name:";
+		cin >> name;
+		cout << "please enter the info:";
+		cin >> info;
+		cout << "please enter the number:";
+		cin >> num;
+		Pointinfo* p = new Pointinfo(name, info, num);
+		p->next = head->next;
+		head->next = p;
+	}
+	return nums;
+}
+int AddingPointinfo(Pointinfo* head, int nums, int nu) {
+	string name, info;
+	int num, nu;
+	Pointinfo* p = new Pointinfo("", "", -1);
 	nums += nu;
 	for (int i = 0; i < nu; i++) {
 		cout << "please enter the name:";
