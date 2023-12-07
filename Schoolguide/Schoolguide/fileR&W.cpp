@@ -112,14 +112,20 @@ int Rawdata_readinfromFile(PathNode* head, string readfilePath) {
 	input: head of the linked list
 	output: numbers of vertices
 */
-void Rawdata_saveinFile(PathNode* head,int numbers, string savefilePath) {
+void Rawdata_saveinFile(PathNode* Pathhead, Pointinfo* infohead, int nums, int numbers, string savefilePath) {
 	ofstream fout(savefilePath);
-	PathNode* p = head->next;
+	PathNode* p = Pathhead->next;
 	fout << numbers;
 	while (p) {
 		fout << p->vA << " " << p->vB << " " << p->pathlen << endl;
 		p = p->next;
-	}
+	}delete p;
+	Pointinfo* q = infohead->next;
+	fout << nums;
+	while (q) {
+		fout << q->name << "\n" << q->info << "\n" << q->num << endl;
+		q = q->next;
+	}delete q;
 	fout.close();
 	cout << "Rawdata save is over" << endl;
 }
