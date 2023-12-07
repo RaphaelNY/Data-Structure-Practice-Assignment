@@ -26,14 +26,14 @@ int Rawdata_readinfromTerminal(PathNode* head, int numbers) {
 }
 
 // create pointinfo chain correct
-int AddingPointinfo(Pointinfo* head) {
+int AddingPointinfo(Pointinfo* head, int nums) {
 	string name, info;
-	int num;
-	int nums;
+	int num,nu;
 	Pointinfo* p = new Pointinfo("", "", -1);	
 	cout << "please enter the nums:";
-	cin >> nums;
-	for (int i = 0; i < nums; i++) {
+	cin >> nu;
+	nums += nu;
+	for (int i = 0; i < nu; i++) {
 		cout << "please enter the name:";
 		cin >> name;
 		cout << "please enter the info:";
