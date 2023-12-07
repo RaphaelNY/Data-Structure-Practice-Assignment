@@ -30,7 +30,7 @@ int Rawdata_readinfromTerminal(PathNode* head, int numbers, int vA) {
 	cin >> num;
 	numbers += num;
 	for (int i = 0; i < num; i++) {
-		cout << "enter the pair and pathlen:";
+		cout << "enter the end point and pathlen:";
 		cin >> vB >> pathlen;
 		PathNode* node = new PathNode(vA, vB, pathlen);
 		node->next = head->next;
