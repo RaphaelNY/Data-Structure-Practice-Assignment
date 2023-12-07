@@ -4,6 +4,7 @@
 using namespace std;
 
 int Rawdata_readinfromTerminal(PathNode* head, int numbers);
+int Rawdata_readinfromTerminal(PathNode* head, int numbers, int vA);
 
 int AddingPointinfo(Pointinfo* head, int nums);
 int AddingPointinfo(Pointinfo* head, int nums, int nu);

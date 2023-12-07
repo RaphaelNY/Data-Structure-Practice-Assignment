@@ -24,6 +24,21 @@ int Rawdata_readinfromTerminal(PathNode* head, int numbers) {
 	cout<<"RawPathdata read is over"<<endl;
 	return numbers;
 }
+int Rawdata_readinfromTerminal(PathNode* head, int numbers, int vA) {
+	int vB, pathlen, num;
+	cout << "enter the path num:";
+	cin >> num;
+	numbers += num;
+	for (int i = 0; i < num; i++) {
+		cout << "enter the pair and pathlen:";
+		cin >> vB >> pathlen;
+		PathNode* node = new PathNode(vA, vB, pathlen);
+		node->next = head->next;
+		head->next = node;
+	}
+	cout << "RawPathdata read is over" << endl;
+	return numbers;
+}
 
 // create pointinfo chain correct
 int AddingPointinfo(Pointinfo* head, int nums) {
