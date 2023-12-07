@@ -27,7 +27,6 @@ int Rawdata_readinfromTerminal(PathNode* head) {
 
 // create pointinfo chain correct
 int AddingPointinfo(Pointinfo* head) {
-	head->next = nullptr;
 	string name, info;
 	int num;
 	int nums;
