@@ -5,8 +5,8 @@
 
 using namespace std;	
 
-string readfilePath = "E:\\资料\\数据结构\\Schoolguide\\Schoolguide\\Rawdata.txt";
-string savefilePath = "E:\\资料\\数据结构\\Schoolguide\\Schoolguide\\Rawdata.txt";
+string readfilePath = "Rawdata.txt";
+string savefilePath = "Rawdata.txt";
 
 int main() {
 	int numbers,nums;
