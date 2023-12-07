@@ -172,6 +172,43 @@ void printPath(Pathinfo** paths, int start,int end) {
 	cout << "end" << endl;
 }
 
+void printinfo_ofPath(Pathinfo** paths, Pointinfo* infohead, int nums, int start, int end) {
+	Pointinfo* p = infohead->next;
+	cout << "from " << start << " to " << end << " is: " << paths[start][end].length << endl;
+	cout << "path: ";
+	for (int i = 0; i < paths[start][end].pathLength; i++) {
+		for (int j = 0; j < nums; j++) {
+			if(p->num == paths[start][end].path[i])
+				break;
+			p = p->next; 
+		}
+		cout << paths[start][end].path[i] << ":" << p->name << "->";
+		p = infohead->next;
+	}
+	cout << "end" << endl;
+}
+
+void searchinfo(Pointinfo* head, int nums) {
+	Pointinfo* p = head->next;
+	cout << "enter \":q\" can quit\n";
+	string name="";
+	while (1) {
+		p = head->next;
+		cout << "enter the name:";
+		cin >> name;
+		if (!abs(name.compare(":q")))
+			break;
+		for (int i = 0; i < nums; i++) {
+			if (!abs(p->name.compare(name))) {
+				cout << p->name << endl << p->num << endl << p->info << endl;
+			}
+			p = p->next;
+		}
+		if (p == nullptr) {
+			cout << "cannot found.";
+		}
+	}
+}
 /* Dijkstra algorithm
 	input: numbers of vertices, start vertex
 		print the road path like: v1->v2->v3...
@@ -227,25 +264,3 @@ void printPath(Pathinfo** paths, int start,int end) {
 	cout << endl;
 	return distance;
 }*/
-
-void searchinfo(Pointinfo* head, int nums) {
-	Pointinfo* p = head->next;
-	cout << "enter \":q\" can quit\n";
-	string name="";
-	while (1) {
-		p = head->next;
-		cout << "enter the name:";
-		cin >> name;
-		if (!abs(name.compare(":q")))
-			break;
-		for (int i = 0; i < nums; i++) {
-			if (!abs(p->name.compare(name))) {
-				cout << p->name << endl << p->num << endl << p->info << endl;
-			}
-			p = p->next;
-		}
-		if (p == nullptr) {
-			cout << "cannot found.";
-		}
-	}
-}
