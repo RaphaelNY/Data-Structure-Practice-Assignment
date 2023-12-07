@@ -67,6 +67,17 @@ int FnpopPAthNode(PathNode* Pathhead, int numbers, int vA,int vB, int pathlength
 	numbers = popPathNode(p, numbers);
 	return numbers;
 }
+int FnpopPAthNode(PathNode* Pathhead, int numbers, int vA) {
+	PathNode* p = Pathhead;
+	while (p->next != nullptr) {
+		if (p->next->vA == vA || p->next->vB == vA) {
+			numbers = popPathNode(p, numbers);
+		}
+		p = p->next;
+	}
+	return numbers;
+}
+
 // pop nead->next
 int popPointinfo(Pointinfo* head, int nums) {
 	Pointinfo* p = head->next;
