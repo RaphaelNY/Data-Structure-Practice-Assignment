@@ -9,18 +9,19 @@ using namespace std;
 	input: head of the linked list
 	output: numbers of vertices
 */
-int Rawdata_readinfromTerminal(PathNode* head) {
-	int vA, vB, pathlen;
-	int numbers;
+int Rawdata_readinfromTerminal(PathNode* head, int numbers) {
+	int vA, vB, pathlen, num;
 	cout << "enter the pointer num:";
-	cin >> numbers;
-	cout<< "enter the pair and pathlen:";
-	while (cin>> vA>> vB>> pathlen) {
+	cin >> num;
+	numbers += num;
+	for (int i = 0; i < num;i++) {
+		cout << "enter the pair and pathlen:";
+		cin >> vA >> vB >> pathlen;
 		PathNode* node = new PathNode(vA,vB,pathlen);
 		node->next = head->next;
 		head->next = node;
 	}
-	cout<<"Rawdata read is over"<<endl;
+	cout<<"RawPathdata read is over"<<endl;
 	return numbers;
 }
 
