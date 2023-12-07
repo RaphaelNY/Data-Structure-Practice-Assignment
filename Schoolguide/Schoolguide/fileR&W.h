@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int Rawdata_readinfromTerminal(PathNode* head);
+int Rawdata_readinfromTerminal(PathNode* head, int numbers);
 
 int AddingPointinfo(Pointinfo* head);
 
