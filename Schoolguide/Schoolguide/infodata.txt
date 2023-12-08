@@ -1,4 +1,13 @@
-7
+12
+AgeL
+infoL
+11
+AgeK
+infoK
+10
+AgeJ
+infoJ
+9
 AgeA
 infoAgeA
 0
@@ -20,3 +29,9 @@ infoAgeE
 AgeF
 infoAgeF
 6
+AgeH
+infoH
+7
+AgeI
+infoI
+8
