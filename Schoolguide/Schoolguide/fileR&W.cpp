@@ -63,7 +63,7 @@ int AddingPointinfo(Pointinfo* head, int nums) {
 }
 int AddingPointinfo(Pointinfo* head, int nums, int nu) {
 	string name, info;
-	int num, nu;
+	int num;
 	Pointinfo* p = new Pointinfo("", "", -1);
 	nums += nu;
 	for (int i = 0; i < nu; i++) {
@@ -86,16 +86,17 @@ int PopingPointinfo(Pointinfo* head, string name, int nums) {
 		p = p->next;
 	}
 	nums = popPointinfo(p, nums);
+	return nums;
 }
 
 /* read the data from the file correct
 	input: head of the linked list
 	output: numbers of vertices
 */
-int Rawdata_readinfromFile(PathNode* head, string readfilePath) {
+int Rawdata_readinfromFile(PathNode* head, string readfilePath_1) {
 	int vA, vB, pathlen;
 	int numbers = 0;
-	ifstream fin(readfilePath);
+	ifstream fin(readfilePath_1);
 	fin >> numbers;
 	while (fin >> vA >> vB >> pathlen) {
 		cout << vA << " " << vB << " " << pathlen << endl;
@@ -107,25 +108,45 @@ int Rawdata_readinfromFile(PathNode* head, string readfilePath) {
 	cout << "Rawdata read is over" << endl;
 	return numbers;
 }
+int Rawdata_readinfromFile(Pointinfo* infohead, string readfilePath_2) {
+	int nums = 0;
+	ifstream fin(readfilePath_2);
+	fin >> nums;
+	for (int i = 0; i < nums; i++) {
+		string name, info;
+		int num;
+		fin >> name >> info >> num;
+		Pointinfo* node = new Pointinfo(name, info, num);
+		node->next = infohead->next;
+		infohead->next = node;
+	}
+	fin.close();
+	cout << "infodata read is over" << endl;
+	return nums;
+}
 
 /* save the data in the file
 	input: head of the linked list
 	output: numbers of vertices
 */
-void Rawdata_saveinFile(PathNode* Pathhead, Pointinfo* infohead, int nums, int numbers, string savefilePath) {
-	ofstream fout(savefilePath);
+void Rawdata_saveinFile(PathNode* Pathhead, Pointinfo* infohead, int nums, int numbers, string savefilePath_1, string savefilePath_2) {
+	ofstream fout_1(savefilePath_1);
+	ofstream fout_2(savefilePath_2);
 	PathNode* p = Pathhead->next;
-	fout << numbers;
+	fout_1 << numbers;
 	while (p) {
-		fout << p->vA << " " << p->vB << " " << p->pathlen << endl;
+		fout_1 << p->vA << " " << p->vB << " " << p->pathlen << endl;
 		p = p->next;
 	}delete p;
+	fout_1.close();
+
 	Pointinfo* q = infohead->next;
-	fout << nums;
+	fout_2 << nums;
 	while (q) {
-		fout << q->name << "\n" << q->info << "\n" << q->num << endl;
+		fout_2 << q->name << "\n" << q->info << "\n" << q->num << endl;
 		q = q->next;
 	}delete q;
-	fout.close();
+	fout_2.close();
+
 	cout << "Rawdata save is over" << endl;
 }
