@@ -13,7 +13,7 @@ int Rawdata_readinfromTerminal(PathNode* head, int numbers) {
 	int vA, vB, pathlen, num;
 	cout << "enter the path num:";
 	cin >> num;
-	numbers += num;
+	numbers += 1;
 	for (int i = 0; i < num;i++) {
 		cout << "enter the pair and pathlen:";
 		cin >> vA >> vB >> pathlen;
@@ -28,7 +28,7 @@ int Rawdata_readinfromTerminal(PathNode* head, int numbers, int vA) {
 	int vB, pathlen, num;
 	cout << "enter the path num:";
 	cin >> num;
-	numbers += num;
+	numbers += 1;
 	for (int i = 0; i < num; i++) {
 		cout << "enter the end point and pathlen:";
 		cin >> vB >> pathlen;
@@ -133,7 +133,7 @@ void Rawdata_saveinFile(PathNode* Pathhead, Pointinfo* infohead, int nums, int n
 	ofstream fout_1(savefilePath_1);
 	ofstream fout_2(savefilePath_2);
 	PathNode* p = Pathhead->next;
-	fout_1 << numbers;
+	fout_1 << numbers << endl;
 	while (p) {
 		fout_1 << p->vA << " " << p->vB << " " << p->pathlen << endl;
 		p = p->next;
@@ -141,7 +141,7 @@ void Rawdata_saveinFile(PathNode* Pathhead, Pointinfo* infohead, int nums, int n
 	fout_1.close();
 
 	Pointinfo* q = infohead->next;
-	fout_2 << nums;
+	fout_2 << nums << endl;
 	while (q) {
 		fout_2 << q->name << "\n" << q->info << "\n" << q->num << endl;
 		q = q->next;
