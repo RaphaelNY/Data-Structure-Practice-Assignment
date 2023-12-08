@@ -45,3 +45,10 @@ void printinfo_ofPath(Pathinfo** paths, Pointinfo* infohead, int nums, int start
 // int* Dijkstra(int numbers, int start, int end);
 
 void searchinfo(Pointinfo* head, int nums);
+
+void DFS(int u, int* disc, int* low, int* parent, bool* ap, int& time, int numbers);
+void DFS(int start, int end, int numbers, int* path, bool* visited, int pathLength);
+
+void findArticulationPoints(int numbers);
+void traverseAllPaths(int start, int end, int numbers);
+void findShortestPathWithVia(Pathinfo** paths, int numbers, int start, int end, int via);
