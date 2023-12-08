@@ -194,17 +194,21 @@ void printPath(Pathinfo** paths, int start,int end) {
 void printinfo_ofPath(Pathinfo** paths, Pointinfo* infohead, int nums, int start, int end) {
 	Pointinfo* p = infohead->next;
 	cout << "from " << start << " to " << end << " is: " << paths[start][end].length << endl;
-	cout << "path: ";
-	for (int i = 0; i < paths[start][end].pathLength; i++) {
-		for (int j = 0; j < nums; j++) {
-			if(p->num == paths[start][end].path[i])
-				break;
-			p = p->next; 
+	if(paths[start][end].length == 0)
+		cout << "no path" << endl;
+	else if (paths[start][end].length != 0) {
+		cout << "path: ";
+		for (int i = 0; i < paths[start][end].pathLength; i++) {
+			for (int j = 0; j < nums; j++) {
+				if (p->num == paths[start][end].path[i])
+					break;
+				p = p->next;
+			}
+			cout << paths[start][end].path[i] << ":" << p->name << "->";
+			p = infohead->next;
 		}
-		cout << paths[start][end].path[i] << ":" << p->name << "->";
-		p = infohead->next;
+		cout << "end" << endl;
 	}
-	cout << "end" << endl;
 }
 
 void searchinfo(Pointinfo* head, int nums) {
@@ -394,15 +398,17 @@ void findShortestPathWithVia(Pathinfo** paths, int numbers, int start, int end, 
 			cerr << "Error: The specified 'via' node does not exist or is the same as start/end nodes." << endl;
 			return;
 		}
-
-		cout << "Shortest Path from " << start << " to " << end << " via " << via << ":" << endl;
-		cout << "Length: " << paths[start][viaIndex].length + paths[viaIndex][end].length << " - ";
-		for (int i = 0; i < paths[start][viaIndex].pathLength; i++) {
-			cout << paths[start][viaIndex].path[i] << " ";
+		else if(viaIndex = via){
+			cout << "Shortest Path from " << start << " to " << end << " via " << via << ":" << endl;
+			cout << "Length: " << paths[start][viaIndex].length + paths[viaIndex][end].length << " - ";
+			for (int i = 0; i < paths[start][viaIndex].pathLength; i++) {
+				cout << paths[start][viaIndex].path[i] << " ";
+			}
+			for (int i = 1; i < paths[viaIndex][end].pathLength; i++) {
+				cout << paths[viaIndex][end].path[i] << " ";
+			}
+			cout << endl;
+			break;
 		}
-		for (int i = 1; i < paths[viaIndex][end].pathLength; i++) {
-			cout << paths[viaIndex][end].path[i] << " ";
-		}
-		cout << endl;
 	}
 }
