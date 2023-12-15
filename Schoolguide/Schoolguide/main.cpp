@@ -43,7 +43,8 @@ void menu() {
 
 	while (1) {
 		system("cls");
-		cout << "[1]:show the map(if you want to see this useless map)(ok)\n\
+		cout <<
+"[1]:show the map(if you want to see this useless map)(ok)\n\
 [2]:check the info of all Attractions(ok)\n\
 [3]:Query the shortest path between two points(You're too lazy, aren't you?)(ok)\n\
 [4]:three point best path find(Oh, greed!)(ok)\n\
