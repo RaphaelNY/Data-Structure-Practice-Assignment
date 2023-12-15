@@ -4,7 +4,7 @@
 
 #define MAXSIZE 100
 
-#define DEBUG 0
+#define DEBUG 1
 #if (DEBUG != 0)
 #define Arrary_INFO 1
 #endif
@@ -145,10 +145,19 @@ Pathinfo** Floyd_A(int numbers) {
 			paths[i][j].pathLength = 2;
 		}
 	}
+#ifndef Arrary_INFO
+	cout << endl;
+	for (int i = 0; i < numbers; i++) {
+		for (int j = 0; j < numbers; j++) {
+			cout << Adjacency[i][j] << "\t";
+		}
+		cout << endl;
+	}cout << endl;
+#endif
 	for (int k = 0; k < numbers; k++) {
 		for (int i = 0; i < numbers; i++) {
 			for (int j = 0; j < numbers; j++) {
-				if ((Adjacency[i][k] + Adjacency[k][j] < Adjacency[i][j] || (Adjacency[i][j] == 0 && Adjacency[i][k] !=0 && Adjacency[k][j] != 0)) && (i != j)) {
+				if (((Adjacency[i][k] + Adjacency[k][j] < Adjacency[i][j] && Adjacency[i][k] != 0 && Adjacency[k][j] != 0) || (Adjacency[i][j] == 0 && Adjacency[i][k] !=0 && Adjacency[k][j] != 0)) && (i != j)) {
 					Adjacency[i][j] = Adjacency[i][k] + Adjacency[k][j];
 
 					paths[i][j].length = Adjacency[i][j];
@@ -161,6 +170,27 @@ Pathinfo** Floyd_A(int numbers) {
 			}
 		}
 	}
+#ifndef Arrary_INFO
+	cout << endl;
+	for (int i = 0; i < numbers; i++) {
+		for (int j = 0; j < numbers; j++) {
+			cout << Adjacency[i][j] << "\t";
+		}
+		cout << endl;
+	}cout << endl;
+	for (int i = 0; i < numbers; i++) {
+		for (int j = 0; j < numbers; j++) {
+			cout << paths[i][j].length << "\t";
+		}
+		cout << endl;
+	}cout << endl;
+	for (int i = 0; i < numbers; i++) {
+		for (int j = 0; j < numbers; j++) {
+			cout << paths[i][j].pathLength << "\t";
+		}
+		cout << endl;
+	}cout << endl;
+#endif
 	return paths;
 }
 
